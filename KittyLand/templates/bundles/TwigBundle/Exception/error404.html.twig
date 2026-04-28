@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page non trouvée — KittyLand{% endblock %}
+
+{% block body %}
+<div class="error-container error-404">
+    <div class="error-card">
+        <div class="error-icon">🎀</div>
+        <h1 class="error-title">Oups ! Page introuvable</h1>
+        <p class="error-code">Erreur 404</p>
+        <p class="error-message">
+            La page que vous cherchez semble s'être envolée vers le Royaume de Hello Kitty… 🌸<br>
+            Pas de panique, on va vous ramener en lieu sûr !
+        </p>
+        <a href="{{ path('app_home') }}" class="error-btn">🏠 Retour à l'accueil</a>
+    </div>
+{% endblock %}

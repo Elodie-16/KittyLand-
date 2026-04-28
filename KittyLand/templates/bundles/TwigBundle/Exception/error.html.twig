@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur {{ status_code }} — KittyLand{% endblock %}
+
+{% block body %}
+<div class="error-container">
+    <div class="error-card">
+        <div class="error-icon">😿</div>
+        <h1 class="error-title">Oups ! Une erreur est survenue</h1>
+        <p class="error-code">Erreur {{ status_code }}</p>
+        <p class="error-message">
+            Quelque chose s'est mal passé dans le Royaume de Hello Kitty…<br>
+            Nos équipes de chatons travaillent déjà sur le problème !
+        </p>
+        <a href="/" class="error-btn">🏠 Retour à l'accueil</a>
+    </div>
+{% endblock %}
