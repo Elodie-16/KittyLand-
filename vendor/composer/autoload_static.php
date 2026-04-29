@@ -39,6 +39,7 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             'Symfony\\WebpackEncoreBundle\\' => 28,
             'Symfony\\UX\\TwigComponent\\' => 25,
+            'Symfony\\Runtime\\Symfony\\Component\\' => 34,
             'Symfony\\Polyfill\\Uuid\\' => 22,
             'Symfony\\Polyfill\\Php85\\' => 23,
             'Symfony\\Polyfill\\Php84\\' => 23,
@@ -48,10 +49,12 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Symfony\\Polyfill\\Intl\\Icu\\' => 26,
             'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Flex\\' => 13,
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\EventDispatcher\\' => 34,
             'Symfony\\Contracts\\Cache\\' => 24,
+            'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarExporter\\' => 30,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Validator\\' => 28,
@@ -59,12 +62,15 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Symfony\\Component\\TypeInfo\\' => 27,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
+            'Symfony\\Component\\Stopwatch\\' => 28,
             'Symfony\\Component\\Security\\Http\\' => 32,
             'Symfony\\Component\\Security\\Csrf\\' => 32,
             'Symfony\\Component\\Security\\Core\\' => 32,
+            'Symfony\\Component\\Runtime\\' => 26,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\PropertyInfo\\' => 31,
             'Symfony\\Component\\PropertyAccess\\' => 33,
+            'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\PasswordHasher\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Mime\\' => 23,
@@ -76,6 +82,7 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\ErrorHandler\\' => 31,
+            'Symfony\\Component\\Dotenv\\' => 25,
             'Symfony\\Component\\DependencyInjection\\' => 38,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Config\\' => 25,
@@ -84,6 +91,7 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Symfony\\Component\\Asset\\' => 24,
             'Symfony\\Bundle\\TwigBundle\\' => 26,
             'Symfony\\Bundle\\SecurityBundle\\' => 30,
+            'Symfony\\Bundle\\MakerBundle\\' => 27,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Doctrine\\' => 24,
@@ -95,6 +103,7 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
             'Psr\\Cache\\' => 10,
+            'PhpParser\\' => 10,
         ),
         'E' =>
         array (
@@ -105,6 +114,7 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Doctrine\\SqlFormatter\\' => 22,
             'Doctrine\\Persistence\\' => 21,
             'Doctrine\\ORM\\' => 13,
+            'Doctrine\\Migrations\\' => 20,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Deprecations\\' => 22,
@@ -112,7 +122,13 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Collections\\' => 28,
             'Doctrine\\Common\\' => 16,
+            'Doctrine\\Bundle\\MigrationsBundle\\' => 33,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
+        ),
+        'A' =>
+        array (
+            'App\\Tests\\' => 10,
+            'App\\' => 4,
         ),
     );
 
@@ -136,6 +152,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         'Symfony\\UX\\TwigComponent\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/ux-twig-component/src',
+        ),
+        'Symfony\\Runtime\\Symfony\\Component\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/runtime/Internal',
         ),
         'Symfony\\Polyfill\\Uuid\\' =>
         array (
@@ -173,6 +193,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Flex\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/flex/src',
+        ),
         'Symfony\\Contracts\\Translation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/translation-contracts',
@@ -188,6 +212,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         'Symfony\\Contracts\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/cache-contracts',
+        ),
+        'Symfony\\Component\\Yaml\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
         'Symfony\\Component\\VarExporter\\' =>
         array (
@@ -217,6 +245,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             0 => __DIR__ . '/..' . '/symfony/string',
         ),
+        'Symfony\\Component\\Stopwatch\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/stopwatch',
+        ),
         'Symfony\\Component\\Security\\Http\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/security-http',
@@ -229,6 +261,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             0 => __DIR__ . '/..' . '/symfony/security-core',
         ),
+        'Symfony\\Component\\Runtime\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/runtime',
+        ),
         'Symfony\\Component\\Routing\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
@@ -240,6 +276,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         'Symfony\\Component\\PropertyAccess\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/property-access',
+        ),
+        'Symfony\\Component\\Process\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
         ),
         'Symfony\\Component\\PasswordHasher\\' =>
         array (
@@ -285,6 +325,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             0 => __DIR__ . '/..' . '/symfony/error-handler',
         ),
+        'Symfony\\Component\\Dotenv\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/dotenv',
+        ),
         'Symfony\\Component\\DependencyInjection\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/dependency-injection',
@@ -316,6 +360,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         'Symfony\\Bundle\\SecurityBundle\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/security-bundle',
+        ),
+        'Symfony\\Bundle\\MakerBundle\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/maker-bundle/src',
         ),
         'Symfony\\Bundle\\FrameworkBundle\\' =>
         array (
@@ -349,6 +397,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'PhpParser\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
         'EasyCorp\\Bundle\\EasyAdminBundle\\' =>
         array (
             0 => __DIR__ . '/..' . '/easycorp/easyadmin-bundle/src',
@@ -364,6 +416,10 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         'Doctrine\\ORM\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/orm/src',
+        ),
+        'Doctrine\\Migrations\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/migrations/src',
         ),
         'Doctrine\\Instantiator\\' =>
         array (
@@ -393,9 +449,21 @@ class ComposerStaticInit52c2f39714f5a5b257977be26801ea13
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
+        'Doctrine\\Bundle\\MigrationsBundle\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/doctrine-migrations-bundle/src',
+        ),
         'Doctrine\\Bundle\\DoctrineBundle\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle/src',
+        ),
+        'App\\Tests\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'App\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
