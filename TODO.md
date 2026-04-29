@@ -1,18 +1,21 @@
-# Fix Complete! PostgreSQL Ready
+# Symfony KittyLand - Complete Setup
 
-## Status
-- [x] **1. Docker Desktop**: Running
-- [x] **2. Verify Docker**: OK
-- [x] **3. Database**: Up and healthy (postgres:16-alpine on port 5432)
-- [x] **4. NPM deps**: `npm ci` done (bootstrap installed)
-- [ ] **Assets**: No 'dev' script in package.json. Run `npm run` to list or install Encore deps.
-- [ ] **5. Test DB**: Run `php bin/console doctrine:database:create --if-not-exists`
-- [x] **6. Migration**: Now works! `php bin/console make:migration`
+## Current Status (DB Ready)
+- [x] Docker Desktop Running
+- [x] Docker Verify OK
+- [x] Database Up (postgres:16-alpine port 5432)
+- [x] NPM deps (bootstrap)
+- [ ] Assets: Install Encore deps & build
+- [ ] Test DB: php bin/console doctrine:database:create --if-not-exists
+- [x] Migration ready
 
-## Final Commands
-```
-php bin/console doctrine:database:create --if-not-exists
-php bin/console make:migration
-```
+## Asset Fix Plan (Webpack Encore)
+1. [x] Update package.json (add deps/scripts)
+2. [x] Run `rm -rf node_modules package-lock.json &amp;&amp; npm ci`
+3. [x] Run `npm run watch` (in new terminal)
+4. [x] php bin/console cache:clear
 
-DB connection error resolved. Run the migration command.
+## Next
+- Run DB migrations: `php bin/console make:migration &amp;&amp; php bin/console doctrine:migrations:migrate`
+- Test http://127.0.0.1:8000/produit (no Twig error)
+- Server running on port 8000
