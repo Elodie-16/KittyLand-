@@ -1,21 +1,14 @@
-# Symfony KittyLand - Complete Setup
+# TODO pour fixer 404 style.css (FIXÉ) - Ajouter contenu page
 
-## Current Status (DB Ready)
-- [x] Docker Desktop Running
-- [x] Docker Verify OK
-- [x] Database Up (postgres:16-alpine port 5432)
-- [x] NPM deps (bootstrap)
-- [ ] Assets: Install Encore deps & build
-- [ ] Test DB: php bin/console doctrine:database:create --if-not-exists
-- [x] Migration ready
+## Statut :
+- [x] Étape 1: Éditer templates/base.html.twig [Encore CSS]
+- [x] Étape 2: Améliorer assets/styles/app.css [Styles KittyLand]
+- [x] Étape 3: npm run dev [Assets rebuild]
+- [x] Étape 4: bin/console cache:clear [OK]
+- [x] Étape 5: 404 fixé, page grise → contenu manquant
 
-## Asset Fix Plan (Webpack Encore)
-1. [x] Update package.json (add deps/scripts)
-2. [x] Run `rm -rf node_modules package-lock.json &amp;&amp; npm ci`
-3. [x] Run `npm run watch` (in new terminal)
-4. [x] php bin/console cache:clear
-
-## Next
-- Run DB migrations: `php bin/console make:migration &amp;&amp; php bin/console doctrine:migrations:migrate`
-- Test http://127.0.0.1:8000/produit (no Twig error)
-- Server running on port 8000
+## Statut FINAL :
+- [x] Étape 6: Contenu ajouté à produit/index.html.twig [navbar + 3 cards + avis + footer]
+- [x] Étape 7: npm run dev [assets OK]
+- [ ] Étape 6: Ajouter navbar + cards produits dans templates/produit/index.html.twig
+- [ ] Étape 7: npm run dev + test styles (hover, responsive)
