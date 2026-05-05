@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}KittyLand{% endblock %}
+{% block title %}Billetterie - KittyLand{% endblock %}
 
 {% block body %}
 
@@ -10,106 +10,76 @@
     <div class="search-box">
         <span class="search-icon">🔍</span>
         <input class="search" type="text" placeholder="Recherche...">
+        
     </div>
 
     <nav class="menu">
-        <a href="#">Accueil</a>
-        <a href="#">Gallerie</a>
-        <a href="#">Billetterie</a>
-        <a href="#">KittyClub</a>
-        <a class="btn pink">Connexion</a>
-        <a class="btn dark">Inscription</a>
+        <a href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('app_gallery') }}">Galerie</a>
+        <a href="{{ path('app_produit') }}" class="active">Billetterie</a>
+        <a href="{{ path('app_login') }}" class="btn pink">Connexion</a>
+        <a href="/logout" class="btn dark" onclick="return confirm('Déconnexion ?')">Déconnexion</a>
     </nav>
 </header>
 
-<section class="filters">
-    <button class="active">✔ Tout</button>
-    <button>Piscine</button>
-    <button>Hotel</button>
-    <button>Parc d'attraction</button>
+<section class="hero">
+    <h1>🎀 Billetterie KittyLand</h1>
+    <p>Choisissez votre expérience magique ✨</p>
 </section>
 
-<section class="cards">
+<section class="tickets">
 
-    <div class="card">
-        <img src="{{ asset('images/img1.jpg') }}">
-        <div class="card-content">
-            <h3>Plage de KittyLand</h3>
-            <p>5€</p>
-        </div>
+    <div class="ticket-card">
+        <h2>🌸 Entrée Parc</h2>
+        <p class="price">29€</p>
+        <ul>
+            <li>Accès parc attractions</li>
+            <li>Accès plage Kitty</li>
+            <li>Accès piscine</li>
+        </ul>
+        <button class="buy">Acheter</button>
     </div>
 
-    <div class="card">
-        <img src="{{ asset('images/img2.jpg') }}">
-        <div class="card-content">
-            <h3>Réception de l'hôtel</h3>
-            <p>5€</p>
-        </div>
+    <div class="ticket-card popular">
+        <div class="badge">POPULAIRE</div>
+        <h2>🏨 Pass Hotel + Parc</h2>
+        <p class="price">89€</p>
+        <ul>
+            <li>Entrée parc illimitée</li>
+            <li>1 nuit hôtel Kitty</li>
+            <li>Petit déjeuner inclus</li>
+        </ul>
+        <button class="buy">Acheter</button>
     </div>
 
-    <div class="card">
-        <img src="{{ asset('images/img3.jpg') }}">
-        <div class="card-content">
-            <h3>Chambre VIP de Kitty</h3>
-            <p>15€</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="{{ asset('images/img4.jpg') }}">
-        <div class="card-content">
-            <h3>Petit cocktail</h3>
-            <p>20€</p>
-        </div>
-    </div>
-
-    <div class="card big">
-        <img src="{{ asset('images/img5.jpg') }}">
-        <div class="card-content">
-            <h3>Hotel & piscine kitty</h3>
-            <p>150€</p>
-        </div>
-    </div>
-
-    <div class="card big">
-        <img src="{{ asset('images/img6.jpg') }}">
-        <div class="card-content">
-            <h3>Restaurant & vue sur l’hôtel</h3>
-            <p>100€</p>
-        </div>
+    <div class="ticket-card vip">
+        <h2>💎 VIP Experience</h2>
+        <p class="price">199€</p>
+        <ul>
+            <li>Accès VIP coupe-file</li>
+            <li>Suite hôtel Kitty</li>
+            <li>Restaurant gastronomique</li>
+            <li>Cadeau surprise 🎁</li>
+        </ul>
+        <button class="buy">Acheter</button>
     </div>
 
 </section>
 
-<section class="reviews">
+<section class="extras">
+    <h2>✨ Extras disponibles</h2>
 
-    <div class="review-card">
-        <div class="avatar">L</div>
-        <h4>Lea Herden</h4>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
+    <div class="extras-grid">
+        <div class="extra">🍹 Cocktail piscine 12€</div>
+        <div class="extra">📸 Shooting photo 25€</div>
+        <div class="extra">🎢 Fast Pass attractions 18€</div>
+        <div class="extra">🛍️ Pack souvenirs 30€</div>
     </div>
-
-    <div class="review-card">
-        <div class="avatar">E</div>
-        <h4>Emily Dupont</h4>
-        <div class="stars">⭐⭐⭐⭐</div>
-    </div>
-
-    <div class="review-card">
-        <div class="avatar">A</div>
-        <h4>Alice Unicorn</h4>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-    </div>
-
 </section>
 
-<footer>
-    <p>📍 Ile de la pastel, 2942 | 📞 01 82 12 05 16</p>
-    <div class="links">
-        <a href="#">Mentions Légales</a>
-        <a href="#">Conditions Générales</a>
-        <a href="#">Aide & Service</a>
-    </div>
-</footer>
+<section class="cta">
+    <h2>Prêt pour l'aventure ?</h2>
+    <button class="cta-btn">Réserver maintenant</button>
+</section>
 
 {% endblock %}
