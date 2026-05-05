@@ -3,59 +3,262 @@
 {% block title %}Connexion - KittyLand{% endblock %}
 
 {% block body %}
-<!-- Navbar comme produit/home -->
+<style>
+:root {
+    /* Palette Apple & KittyLand New Design */
+    --apple-bg: #f5f5f7;
+    --apple-card: rgba(255, 255, 255, 0.8);
+    --apple-text: #1d1d1f;
+    --apple-text-sec: #86868b;
+    --apple-blue: #ff82dc;
+    --shadow-subtle: 0 12px 40px rgba(0, 0, 0, 0.05);
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<!-- Hero connexion -->
-<section class="hero login-hero">
+body {
+    min-height: 100vh;
+    background-color: var(--apple-bg);
+    /* Petit dégradé radial très discret pour la profondeur Apple */
+    background-image: radial-gradient(circle at 50% -20%, #ffffff 0%, #f5f5f7 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--apple-text);
+}
+
+.login-hero {
+    padding-top: 4rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--apple-text-sec);
+    font-weight: 400;
+}
+
+.login-card {
+    max-width: 440px;
+    margin: 2rem auto 4rem;
+    background: var(--apple-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+    text-align: center;
+    padding: 3rem 2rem 1.5rem;
+}
+
+.kitty-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.card-header h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: -0.01em;
+}
+
+.auth-form {
+    padding: 0 2.5rem 3rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--apple-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding-left: 4px;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+    border-color: var(--apple-blue);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--apple-text-sec);
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--apple-blue);
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--apple-blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #ff96ee;
+    transform: scale(1.01);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.error-message {
+    background: #fff2f2;
+    color: #ff3b30;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 59, 48, 0.1);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-links {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+
+.link {
+    color: var(--apple-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        margin: 1rem;
+        padding: 1.5rem 1rem;
+    }
+    .auth-form {
+        padding: 0 1rem 2rem;
+    }
+}
+</style>
+
+<section class="login-hero">
     <div class="hero-content">
-        <h1>🎀 Bienvenue à KittyLand</h1>
-        <p>Connectez-vous pour réserver votre aventure magique ✨</p>
+        <h1 class="hero-title">Identifiez-vous</h1>
+        <p class="hero-subtitle">Le monde de KittyLand n'attend que vous. 🐾</p>
     </div>
 </section>
 
-<!-- Formulaire centré -->
-<section class="auth-container">
+<main class="login-card">
+    <div class="card-header">
+        <span class="kitty-icon">🐱</span>
+        <h2>Se connecter</h2>
+    </div>
+
     <form method="post" class="auth-form">
-        
         {% if error %}
-            <div class="error-message">Identifiants incorrects 😿</div>
+            <div class="error-message">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
         {% endif %}
 
-        <h2>Connexion</h2>
-        
         <div class="input-group">
-            <label>Email</label>
-            <div class="input-wrapper">
-                <span class="input-icon">✉️</span>
-                <input type="email" name="email" value="{{ last_username }}" required autofocus>
-            </div>
+            <label class="label">Adresse e-mail</label>
+            <input type="email" name="email" value="{{ last_username }}" required autofocus placeholder="email@exemple.com">
         </div>
 
         <div class="input-group">
-            <label>Mot de passe</label>
-            <div class="input-wrapper">
-                <span class="input-icon">🔒</span>
-                <input type="password" name="password" required>
-            </div>
+            <label class="label">Mot de passe</label>
+            <input type="password" name="password" required placeholder="Mot de passe">
         </div>
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <label class="checkbox-group">
             <input type="checkbox" name="_remember_me">
-            Se souvenir de moi
+            Rester connecté
         </label>
 
-        <button class="btn pink login-btn" type="submit">
-            <span>Se connecter</span>
-            <span class="btn-icon">🚀</span>
+        <button type="submit" class="btn">
+            Continuer
         </button>
 
-        <p class="forgot-password">
-            <a href="#">Mot de passe oublié ?</a>
-        </p>
-        
+        <div class="footer-links">
+            <p style="margin-bottom: 0.8rem;">
+                <a href="#" class="link">Mot de passe oublié ?</a>
+            </p>
+            <p style="color: var(--apple-text-sec);">
+                Nouveau sur KittyLand ? <a href="{{ path('app_register') }}" class="link">Créer un compte</a>
+            </p>
+        </div>
     </form>
-</section>
+</main>
 {% endblock %}

@@ -3,85 +3,244 @@
 {% block title %}Inscription - KittyLand{% endblock %}
 
 {% block body %}
-
-
-<section class="hero login-hero">
-    <div class="hero-content">
-        <h1>🎀 Rejoignez KittyLand</h1>
-        <p>Créez votre compte pour vos réservations magiques ✨</p>
-    </div>
-</section>
-
-<section class="auth-container">
-    <form method="post" class="auth-form">
-        
-        {% for message in app.flashed_messages('success') %}
-            <div class="success-message">✅ {{ message }}</div>
-        {% endfor %}
-
-        {% for message in app.flashed_messages('error') %}
-            <div class="error-message">{{ message }}</div>
-        {% endfor %}
-
-        <h2>Inscription</h2>
-        
-        {{ form_start(registrationForm) }}
-        
-        <div class="input-group">
-            {{ form_label(registrationForm.pseudo) }}
-            <div class="input-wrapper">
-                <span class="input-icon">🐾</span>
-                {{ form_widget(registrationForm.pseudo) }}
-            </div>
-            {{ form_errors(registrationForm.pseudo) }}
-        </div>
-
-        <div class="input-group">
-            {{ form_label(registrationForm.email) }}
-            <div class="input-wrapper">
-                <span class="input-icon">✉️</span>
-                {{ form_widget(registrationForm.email) }}
-            </div>
-            {{ form_errors(registrationForm.email) }}
-        </div>
-
-        <div class="input-group">
-            {{ form_label(registrationForm.plainPassword) }}
-            <div class="input-wrapper">
-                <span class="input-icon">🔒</span>
-                {{ form_widget(registrationForm.plainPassword) }}
-            </div>
-            {{ form_errors(registrationForm.plainPassword) }}
-        </div>
-
-        <label class="checkbox-group">
-            <input type="checkbox" required>
-            J'accepte les <a href="#">conditions d'utilisation</a>
-        </label>
-
-        <button class="btn pink login-btn" type="submit">
-            <span>Créer mon compte</span>
-            <span class="btn-icon">✨</span>
-        </button>
-
-        {{ form_end(registrationForm) }}
-        
-        <p class="switch-link">
-            Déjà inscrit ? <a href="{{ path('app_login') }}">Se connecter</a>
-        </p>
-    </form>
-</section>
-
 <style>
-.success-message {
-    background: #e8f5e8;
-    color: #2e7d32;
-    padding: 15px;
-    border-radius: 12px;
-    border-left: 4px solid #4caf50;
-    margin-bottom: 25px;
-    font-weight: 500;
+:root {
+    --pink-primary: #ff85a2;
+    --pink-light: #fecfef;
+    --pink-dark: #ff4d6d;
+    --purple: #a29bfe;
+    --white: #ffffff;
+    --text-dark: #4a4a4a;
+    --gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    --shadow: 0 15px 35px rgba(255, 133, 162, 0.2);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--gradient);
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Fond animé avec de petites pattes ou formes */
+.kitty-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10c0-2.21 1.79-4 4-4s4 1.79 4 4v2c0 2.21-1.79 4-4 4s-4-1.79-4-4v-2zm20 10c0-2.21 1.79-4 4-4s4 1.79 4 4v2c0 2.21-1.79 4-4 4s-4-1.79-4-4v-2z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+    z-index: -1;
+}
+
+.register-hero {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.hero-content {
+    z-index: 2;
+    color: var(--white);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.register-card {
+    max-width: 500px;
+    margin: -60px auto 4rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 40px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.kitty-icon-main {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.5rem;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background: var(--white);
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--pink-primary);
+    box-shadow: 0 0 15px rgba(255, 133, 162, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(45deg, var(--pink-primary), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 133, 162, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 133, 162, 0.4);
+    filter: brightness(1.05);
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.link {
+    color: var(--pink-dark);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.link:hover {
+    border-bottom-color: var(--pink-dark);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .register-card {
+        margin: -40px 15px 2rem;
+        padding: 2rem 1.5rem;
+    }
 }
 </style>
 
+<div class="kitty-bg-overlay"></div>
+
+<section class="register-hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Rejoignez-nous !</h1>
+        <p class="hero-subtitle">Le paradis des chats n'attendent que toi 🐾</p>
+    </div>
+</section>
+
+<main class="register-card">
+    <div class="card-header">
+        <span class="kitty-icon-main">🐱</span>
+        <h2 style="color: var(--text-dark);">Créer un profil Kitty</h2>
+    </div>
+
+    {{ form_start(registrationForm, {'attr': {'class': 'register-form'}}) }}
+        
+        {# Affichage des erreurs globales #}
+        {% if form_errors(registrationForm) %}
+            <div class="flash error-flash" style="background: #ffebee; color: #c62828; padding: 1rem; border-radius: 15px; margin-bottom: 1rem;">
+                {{ form_errors(registrationForm) }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            {{ form_label(registrationForm.pseudo, 'Pseudo', {'label_attr': {'class': 'label'}}) }}
+            <div class="input-container">
+                <span class="input-icon">👤</span>
+                {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'input', 'placeholder': 'Ex: Mistigri'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(registrationForm.email, 'Adresse mail', {'label_attr': {'class': 'label'}}) }}
+            <div class="input-container">
+                <span class="input-icon">✉️</span>
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'input', 'placeholder': 'chaton@exemple.com'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(registrationForm.plainPassword, 'Mot de passe secret', {'label_attr': {'class': 'label'}}) }}
+            <div class="input-container">
+                <span class="input-icon">🔒</span>
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'input', 'placeholder': '••••••••'}}) }}
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+            C'est parti ! ✨
+        </button>
+
+    {{ form_end(registrationForm) }}
+
+    <div class="switch-auth">
+        Déjà un compte ? <a href="{{ path('app_login') }}" class="link">Connecte-toi ici</a>
+    </div>
+</main>
 {% endblock %}
