@@ -17,8 +17,8 @@ security:
             provider: app_user_provider
             
             logout:
-                path: app_logout
-                target: app_home
+                path: /logout
+                target: home
             custom_authenticator: App\Security\LoginFormAuthenticator
             entry_point: App\Security\LoginFormAuthenticator
 
@@ -33,6 +33,6 @@ security:
 
     access_control:
         # Seul un ADMIN peut accéder au CRUD Produit
-        - { path: ^/produit, roles: ROLE_ADMIN }
+# - { path: ^/produit, roles: ROLE_ADMIN }  # Supprimé pour accès public
         # Seul un utilisateur connecté peut voir son profil (si tu en as un)
         - { path: ^/profil, roles: ROLE_USER }

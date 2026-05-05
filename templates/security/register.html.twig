@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - KittyLand{% endblock %}
+
+{% block body %}
+
+
+<section class="hero login-hero">
+    <div class="hero-content">
+        <h1>🎀 Rejoignez KittyLand</h1>
+        <p>Créez votre compte pour vos réservations magiques ✨</p>
+    </div>
+</section>
+
+<section class="auth-container">
+    <form method="post" class="auth-form">
+        
+        {% for message in app.flashed_messages('success') %}
+            <div class="success-message">✅ {{ message }}</div>
+        {% endfor %}
+
+        {% for message in app.flashed_messages('error') %}
+            <div class="error-message">{{ message }}</div>
+        {% endfor %}
+
+        <h2>Inscription</h2>
+        
+        {{ form_start(registrationForm) }}
+        
+        <div class="input-group">
+            {{ form_label(registrationForm.pseudo) }}
+            <div class="input-wrapper">
+                <span class="input-icon">🐾</span>
+                {{ form_widget(registrationForm.pseudo) }}
+            </div>
+            {{ form_errors(registrationForm.pseudo) }}
+        </div>
+
+        <div class="input-group">
+            {{ form_label(registrationForm.email) }}
+            <div class="input-wrapper">
+                <span class="input-icon">✉️</span>
+                {{ form_widget(registrationForm.email) }}
+            </div>
+            {{ form_errors(registrationForm.email) }}
+        </div>
+
+        <div class="input-group">
+            {{ form_label(registrationForm.plainPassword) }}
+            <div class="input-wrapper">
+                <span class="input-icon">🔒</span>
+                {{ form_widget(registrationForm.plainPassword) }}
+            </div>
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+
+        <label class="checkbox-group">
+            <input type="checkbox" required>
+            J'accepte les <a href="#">conditions d'utilisation</a>
+        </label>
+
+        <button class="btn pink login-btn" type="submit">
+            <span>Créer mon compte</span>
+            <span class="btn-icon">✨</span>
+        </button>
+
+        {{ form_end(registrationForm) }}
+        
+        <p class="switch-link">
+            Déjà inscrit ? <a href="{{ path('app_login') }}">Se connecter</a>
+        </p>
+    </form>
+</section>
+
+<style>
+.success-message {
+    background: #e8f5e8;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #4caf50;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+</style>
+
+{% endblock %}

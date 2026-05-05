@@ -28,6 +28,30 @@
     </head>
     
     <body>
+        {# Navbar dynamique #}
+        <header class="navbar">
+            <div class="logo">🎀 KittyLand</div>
+
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input class="search" type="text" placeholder="Recherche...">
+            </div>
+
+            <nav class="menu">
+                <a href="{{ path('home') }}" class="{% if app.request.attributes.get('_route') == 'home' %}active{% endif %}">Accueil</a>
+                <a href="{{ path('app_gallery') }}" class="{% if app.request.attributes.get('_route') == 'app_gallery' %}active{% endif %}">Galerie</a>
+                <a href="{{ path('app_produit') }}" class="{% if app.request.attributes.get('_route') == 'app_produit' %}active{% endif %}">Billetterie</a>
+                
+                {% if app.user %}
+                    <span class="user-greeting">Bonjour {{ app.user.pseudo }} !</span>
+                    <a href="/logout" class="btn dark" onclick="return confirm('Déconnexion ?')">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="btn pink">Connexion</a>
+                    <a href="{{ path('app_register') }}" class="btn pink-outline">Inscription</a>
+                {% endif %}
+            </nav>
+        </header>
+
         {% block body %}{% endblock %}
     </body>
 </html>

@@ -4,23 +4,7 @@
 
 {% block body %}
 
-<header class="navbar">
-    <div class="logo">🎀</div>
 
-    <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input class="search" type="text" placeholder="Recherche...">
-        
-    </div>
-
-    <nav class="menu">
-        <a href="{{ path('home') }}">Accueil</a>
-        <a href="{{ path('app_gallery') }}">Galerie</a>
-        <a href="{{ path('app_produit') }}" class="active">Billetterie</a>
-        <a href="{{ path('app_login') }}" class="btn pink">Connexion</a>
-        <a href="/logout" class="btn dark" onclick="return confirm('Déconnexion ?')">Déconnexion</a>
-    </nav>
-</header>
 
 <section class="hero">
     <h1>🎀 Billetterie KittyLand</h1>
@@ -31,7 +15,7 @@
 
     <div class="ticket-card">
         <h2>🌸 Entrée Parc</h2>
-        <p class="price">29€</p>
+        <p class="price">25€</p>
         <ul>
             <li>Accès parc attractions</li>
             <li>Accès plage Kitty</li>
@@ -43,7 +27,7 @@
     <div class="ticket-card popular">
         <div class="badge">POPULAIRE</div>
         <h2>🏨 Pass Hotel + Parc</h2>
-        <p class="price">89€</p>
+        <p class="price">85€</p>
         <ul>
             <li>Entrée parc illimitée</li>
             <li>1 nuit hôtel Kitty</li>
@@ -54,7 +38,7 @@
 
     <div class="ticket-card vip">
         <h2>💎 VIP Experience</h2>
-        <p class="price">199€</p>
+        <p class="price">130€</p>
         <ul>
             <li>Accès VIP coupe-file</li>
             <li>Suite hôtel Kitty</li>

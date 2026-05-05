@@ -20,20 +20,40 @@ final class Version20260429105834 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE `user` (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, pseudo VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL (email), PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4');
-        $this->addSql('DROP TABLE messenger_messages');
-        $this->addSql('DROP TABLE utilisateur');
-        $this->addSql('ALTER TABLE achat ADD `float` VARCHAR(255) NOT NULL, DROP dat_achat, DROP utilisateur, DROP relation, CHANGE total total DOUBLE PRECISION NOT NULL');
-        $this->addSql('ALTER TABLE produit ADD nom VARCHAR(255) NOT NULL, DROP billet, DROP img, DROP avis, CHANGE prix prix DOUBLE PRECISION NOT NULL, CHANGE photo photo VARCHAR(255) DEFAULT NULL');
+        $this->addSql('CREATE TABLE "user" (id SERIAL NOT NULL, email VARCHAR(180) NOT NULL, roles JSONB NOT NULL, password VARCHAR(255) NOT NULL, pseudo VARCHAR(255) NOT NULL, CONSTRAINT UNIQ_IDENTIFIER_EMAIL UNIQUE (email), PRIMARY KEY (id))');
+        $this->addSql('DROP TABLE IF EXISTS messenger_messages');
+        $this->addSql('DROP TABLE IF EXISTS utilisateur');
+        $this->addSql('ALTER TABLE achat ADD COLUMN "float" VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE achat DROP COLUMN IF EXISTS dat_achat');
+        $this->addSql('ALTER TABLE achat DROP COLUMN IF EXISTS utilisateur');
+        $this->addSql('ALTER TABLE achat DROP COLUMN IF EXISTS relation');
+        $this->addSql('ALTER TABLE achat ALTER COLUMN total TYPE DOUBLE PRECISION USING total::DOUBLE PRECISION');
+        $this->addSql('ALTER TABLE produit ADD COLUMN nom VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE produit DROP COLUMN IF EXISTS billet');
+        $this->addSql('ALTER TABLE produit DROP COLUMN IF EXISTS img');
+        $this->addSql('ALTER TABLE produit DROP COLUMN IF EXISTS avis');
+        $this->addSql('ALTER TABLE produit ALTER COLUMN prix TYPE DOUBLE PRECISION USING prix::DOUBLE PRECISION');
+        $this->addSql('ALTER TABLE produit ALTER COLUMN photo TYPE VARCHAR(255)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE messenger_messages (id BIGINT AUTO_INCREMENT NOT NULL, body LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, headers LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, queue_name VARCHAR(190) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, created_at DATETIME NOT NULL, available_at DATETIME NOT NULL, delivered_at DATETIME DEFAULT NULL, INDEX IDX_75EA56E0FB7336F0E3BD61CE16BA31DBBF396750 (queue_name, available_at, delivered_at, id), PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_0900_ai_ci` ENGINE = InnoDB COMMENT = \'\' ');
-        $this->addSql('CREATE TABLE utilisateur (id INT AUTO_INCREMENT NOT NULL, pseudo VARCHAR(180) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, roles JSON NOT NULL, password VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, nom VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, prenom VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_0900_ai_ci`, UNIQUE INDEX UNIQ_IDENTIFIER_PSEUDO (pseudo), PRIMARY KEY (id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_0900_ai_ci` ENGINE = InnoDB COMMENT = \'\' ');
-        $this->addSql('DROP TABLE `user`');
-        $this->addSql('ALTER TABLE achat ADD dat_achat DATETIME NOT NULL, ADD relation VARCHAR(255) NOT NULL, CHANGE total total NUMERIC(10, 2) NOT NULL, CHANGE `float` utilisateur VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE produit ADD img VARCHAR(255) NOT NULL, ADD avis LONGTEXT NOT NULL, CHANGE prix prix NUMERIC(10, 2) NOT NULL, CHANGE photo photo VARCHAR(255) NOT NULL, CHANGE nom billet VARCHAR(255) NOT NULL');
+        $this->addSql('CREATE TABLE messenger_messages (id BIGSERIAL NOT NULL, body TEXT NOT NULL, headers TEXT NOT NULL, queue_name VARCHAR(190) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, available_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, delivered_at TIMESTAMP(0) WITHOUT TIME ZONE, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_75EA56E0FB7336F0E3BD61CE16BA31DBBF396750 ON messenger_messages (queue_name, available_at, delivered_at)');
+        $this->addSql('CREATE TABLE utilisateur (id SERIAL NOT NULL, pseudo VARCHAR(180) NOT NULL, roles JSONB NOT NULL, password VARCHAR(255) NOT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, CONSTRAINT UNIQ_IDENTIFIER_PSEUDO UNIQUE (pseudo), PRIMARY KEY (id))');
+        $this->addSql('DROP TABLE "user"');
+        $this->addSql('ALTER TABLE achat DROP COLUMN "float"');
+        $this->addSql('ALTER TABLE achat ADD COLUMN dat_achat TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL');
+        $this->addSql('ALTER TABLE achat ADD COLUMN relation VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE achat ALTER COLUMN total TYPE NUMERIC(10, 2) USING total::NUMERIC(10,2)');
+        $this->addSql('ALTER TABLE achat ADD COLUMN utilisateur VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE produit DROP COLUMN nom');
+        $this->addSql('ALTER TABLE produit ADD COLUMN img VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE produit ADD COLUMN avis TEXT NOT NULL');
+        $this->addSql('ALTER TABLE produit ALTER COLUMN prix TYPE NUMERIC(10, 2) USING prix::NUMERIC(10,2)');
+        $this->addSql('ALTER TABLE produit ALTER COLUMN photo TYPE VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE produit ADD COLUMN billet VARCHAR(255) NOT NULL');
     }
 }
+
