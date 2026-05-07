@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Billetterie - KittyLand{% endblock %}
+
+{% block body %}
+
+
+
+<section class="hero">
+    <h1>🎀 Billetterie KittyLand</h1>
+    <p>Choisissez votre expérience magique ✨</p>
+</section>
+
+<section class="tickets">
+
+    <div class="ticket-card">
+        <h2>🌸 Entrée Parc</h2>
+        <p class="price">25€</p>
+        <ul>
+            <li>Accès parc attractions</li>
+            <li>Accès plage Kitty</li>
+            <li>Accès piscine</li>
+        </ul>
+        <button class="buy">Acheter</button>
+    </div>
+
+    <div class="ticket-card popular">
+        <div class="badge">POPULAIRE</div>
+        <h2>🏨 Pass Hotel + Parc</h2>
+        <p class="price">85€</p>
+        <ul>
+            <li>Entrée parc illimitée</li>
+            <li>1 nuit hôtel Kitty</li>
+            <li>Petit déjeuner inclus</li>
+        </ul>
+        <button class="buy">Acheter</button>
+    </div>
+
+    <div class="ticket-card vip">
+        <h2>💎 VIP Experience</h2>
+        <p class="price">130€</p>
+        <ul>
+            <li>Accès VIP coupe-file</li>
+            <li>Suite hôtel Kitty</li>
+            <li>Restaurant gastronomique</li>
+            <li>Cadeau surprise 🎁</li>
+        </ul>
+        <button class="buy">Acheter</button>
+    </div>
+
+</section>
+
+<section class="extras">
+    <h2>✨ Extras disponibles</h2>
+
+    <div class="extras-grid">
+        <div class="extra">🍹 Cocktail piscine 12€</div>
+        <div class="extra">📸 Shooting photo 25€</div>
+        <div class="extra">🎢 Fast Pass attractions 18€</div>
+        <div class="extra">🛍️ Pack souvenirs 30€</div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Prêt pour l'aventure ?</h2>
+    <button class="cta-btn">Réserver maintenant</button>
+</section>
+
+{% endblock %}

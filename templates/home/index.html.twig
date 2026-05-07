@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KittyLand{% endblock %}
+
+{% block body %}
+
+
+
+<section class="filters">
+    <button class="active">✔ Tout</button>
+    <button>Piscine</button>
+    <button>Hotel</button>
+    <button>Parc d'attraction</button>
+</section>
+
+<section class="cards">
+
+    <div class="card">
+        <img src="{{ asset('images/k1.png') }}">
+        <div class="card-content">
+            <h3>Plage de KittyLand</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ asset('images/k2.png') }}">
+        <div class="card-content">
+            <h3>Réception de l'hôtel</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ asset('images/k3.png') }}">
+        <div class="card-content">
+            <h3>Chambre VIP de Kitty</h3>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ asset('images/k4.png') }}">
+        <div class="card-content">
+            <h3>Petit cocktail</h3>
+
+        </div>
+    </div>
+
+    <div class="card big">
+        <img src="{{ asset('images/k5.png') }}">
+        <div class="card-content">
+            <h3>Hotel & piscine kitty</h3>
+        </div>
+    </div>
+
+    <div class="card big">
+        <img src="{{ asset('images/k6.png') }}">
+        <div class="card-content">
+            <h3>Restaurant & vue sur l'hôtel</h3>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="reviews">
+
+    <div class="review-card">
+        <div class="avatar">L</div>
+        <h4>Lea Herden</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+
+    <div class="review-card">
+        <div class="avatar">E</div>
+        <h4>Emily Dupont</h4>
+        <div class="stars">⭐⭐⭐⭐</div>
+    </div>
+
+    <div class="review-card">
+        <div class="avatar">A</div>
+        <h4>Alice Unicorn</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+
+</section>
+
+<footer>
+    <p>📍 Ile de la pastel, 2942 | 📞 01 82 12 05 16</p>
+    <div class="links">
+        <a href="#">Mentions Légales</a>
+        <a href="#">Conditions Générales</a>
+        <a href="#">Aide & Service</a>
+    </div>
+</footer>
+
+{% endblock %}

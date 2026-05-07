@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie - KittyLand{% endblock %}
+
+{% block body %}
+
+<header class="navbar">
+    <div class="logo">🎀</div>
+
+    <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input class="search" type="text" placeholder="Recherche...">
+        
+    </div>
+
+    <nav class="menu">
+        <a href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('app_gallery') }}" class="active">Galerie</a>
+        <a href="{{ path('app_produit') }}">Billetterie</a>
+        <a href="{{ path('app_login') }}" class="btn pink">Connexion</a>
+        <a href="/logout" class="btn dark" onclick="return confirm('Déconnexion ?')">Déconnexion</a>
+    </nav>
+</header>
+
+<section class="filters">
+    <button class="active">✔ Tout</button>
+    <button>Piscine</button>
+    <button>Hotel</button>
+    <button>Parc d'attraction</button>
+</section>
+
+<section class="gallery-grid">
+
+    <div class="gallery-item"><img src="{{ asset('images/k1.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k2.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k3.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k4.png') }}"></div>
+    <div class="gallery-item big"><img src="{{ asset('images/k5.png') }}"></div>
+    <div class="gallery-item big"><img src="{{ asset('images/k6.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k7.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k8.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k9.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k10.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k11.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k12.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k13.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k14.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k15.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k16.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k17.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k18.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k19.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k20.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k21.png') }}"></div>
+    <div class="gallery-item"><img src="{{ asset('images/k22.png') }}"></div>
+
+</section>
+
+<footer>
+    <p>📍 Ile de la pastel, 2942 | 📞 01 82 12 05 16</p>
+    <div class="links">
+        <a href="#">Mentions Légales</a>
+        <a href="#">Conditions Générales</a>
+        <a href="#">Aide & Service</a>
+    </div>
+</footer>
+
+{% endblock %}
